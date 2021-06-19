@@ -193,8 +193,8 @@
         </div>
         <footer>
             <div></div>
-            <a href="https://github.com/aaronsighs/calculator" >
-            <img src="https://avatars.githubusercontent.com/u/74954440?v=4" alt="github">
+            <!-- <a href="https://github.com/aaronsighs/calculator" >
+            <img src="https://avatars.githubusercontent.com/u/74954440?v=4" alt="github"> -->
         </a>
 
         </footer>
@@ -211,41 +211,8 @@
     let reserve1 = ""
     let action = ""
     let reserve2 = ""
-    let eq = ""
 
 
-    let keyCodes = {
-        "":"clr"
-    }
-
-
-
-
-
-
-    window.addEventListener("keypress",e=>{
-        let key = keyCodes[e.key]
-        let element = document.querySelector(`button[value="${e.key}"]`) 
-        sudoClass = {
-            target:element
-        }
-        if (element){
-            if (!isNaN(+e.key)){
-            element.classList.add("sudo-hover")
-            setTimeout(()=>element.classList.remove("sudo-hover"),250)
-            addNumToScreen(sudoClass)
-
-            }else{
-                element.classList.add("sudo-hover2")
-            setTimeout(()=>element.classList.remove("sudo-hover2"),250)
-                operate(sudoClass)
-
-            }
-
-            
-        }
-        console.log(element);
-    })
 
 
     // SETUP NUMPAD
@@ -326,6 +293,36 @@
         }
         return x * factorial(Math.abs(x)-1)
     }
+
+
+
+
+
+
+
+    window.addEventListener("keypress",e=>{
+        let key = keyCodes[e.key]
+        let element = document.querySelector(`button[value="${e.key}"]`) 
+        sudoClass = {
+            target:element
+        }
+        if (element){
+            if (!isNaN(+e.key)){
+            element.classList.add("sudo-hover")
+            setTimeout(()=>element.classList.remove("sudo-hover"),250)
+            addNumToScreen(sudoClass)
+
+            }else{
+                element.classList.add("sudo-hover2")
+            setTimeout(()=>element.classList.remove("sudo-hover2"),250)
+                operate(sudoClass)
+
+            }
+
+            
+        }
+    })
+
 
 
 
@@ -450,7 +447,6 @@
         }else{
             number = number.slice(index+1)
         }
-        console.log(number);
         document.querySelector("#lower-screen").textContent=number;
     }
 
@@ -459,7 +455,6 @@
         if (number.length>16){
             return
         }
-        console.log(e.target.textContent)
         number += String(e.target.textContent);
         document.querySelector("#lower-screen").textContent=number;
         reserve2=""
